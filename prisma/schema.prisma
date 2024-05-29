@@ -7,19 +7,19 @@ generator client {
 
 datasource db {
   provider = "sqlite"
-  url      = env("DATABASE_URL")
+  url      = "file:./dev.db"
 }
 
 model Prompt {
-  id String @id @default(uuid())
-  title String
+  id       String @id @default(uuid())
+  title    String
   template String
 }
 
 model Video {
-  id String @id @default(uuid())
-  name String
-  path String
+  id            String   @id @default(uuid())
+  name          String
+  path          String
   transcription String?
-  createdAt DateTime @default(now())
+  createdAt     DateTime @default(now())
 }
